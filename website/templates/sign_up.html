@@ -1,0 +1,70 @@
+{% extends "base.html" %} 
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sign_up.css')}}">
+{% endblock %}
+
+{% block title %}Sign Up{% endblock %} {% block
+content %}
+
+{% block navbar %}
+{% endblock %}
+
+<form method="POST">
+  <br>
+  <div class="complete">
+
+  <h3 align="center"><b>Sign Up</b></h3>
+  <br>
+  <div class="form-group">
+    <!-- <label for="email">Email Address</label> -->
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Enter email address"
+    />
+  </div>
+  <br>
+  <div class="form-group">
+    <!-- <label for="firstName">First Name</label> -->
+    <input
+      type="text"
+      class="form-control"
+      id="firstName"
+      name="firstName"
+      placeholder="Enter Username"
+    />
+  </div>
+  <br>
+  <div class="form-group">
+    <!-- <label for="password1">Password</label> -->
+    <input
+      type="password"
+      class="form-control"
+      id="password1"
+      name="password1"
+      placeholder="Enter password"
+    />
+  </div>
+  <br>
+  <div class="form-group">
+    <!-- <label for="password2">Password (Confirm)</label> -->
+    <input
+      type="password"
+      class="form-control"
+      id="password2"
+      name="password2"
+      placeholder="Confirm password"
+    />
+  </div>
+  <br />
+  <button type="submit" class="btn"><b>Sign In</b></button>
+  <br>
+  <div class="bottom">
+    Already have an account ? <a href="/login">Login</a>
+  </div>
+
+</div>
+</form>
+{% endblock %}
