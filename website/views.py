@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template, request, flash, jsonify
+from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for
 from flask_login import login_required, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
+from .models import User
 from .models import Note
 from . import db
 import json
@@ -36,6 +38,19 @@ def delete_note():
 
     return jsonify({})
 
-@views.route('/account')
+@views.route('/account', methods = ["GET","POST"])    
 def profile():
+    if request.method == "POST":
+        email = request.form.get('email')
+        passw = request.form.get('password')
+        user = User.query.filter_by(email=current_user.email).first()
+        user.email = email
+        user.password = generate_password_hash(passw)
+
+        db.session.commit()
+        return redirect('/account')
+
     return render_template('profile.html', user=current_user)
+    
+
+    

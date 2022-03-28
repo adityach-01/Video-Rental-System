@@ -1,20 +1,27 @@
 {% extends "base.html" %} {% block title %}Profile{% endblock %} 
 
+{% block css %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/accordion.css')}}">
+
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <div class="row">
         <div class="col">
+            <br>
             <h1>Profile</h1>
             <hr>
 
             <div class="card">
                 <div class="card-body">
 
-                    <h4>{{ user.first_name }}</h4>
+                    <h4>Name :- {{ user.first_name }}</h4>
                     <hr>
 
                     {% if user %}
-                    <p><b>{{user.email}}</b></p>
+                    <p><b>Email :- {{user.email}}</b></p>
                     <p class = 'text-muted'>{{user.password}}</p>
 
                     {% else %}
@@ -23,9 +30,8 @@
 
                 </div>
             </div>
-        
+               
+{% block script %}
+{% endblock %}
 
-        </div>
-    </div>
-</div>
 {% endblock %}

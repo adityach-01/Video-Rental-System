@@ -16,11 +16,10 @@
     />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-
-    {% block css %}
-
     <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css')}}">
 
+
+    {% block css %}
     {% endblock %}
 
 
@@ -100,6 +99,9 @@
       type="text/javascript"
       src="{{ url_for('static', filename='js/index.js') }}"
     ></script>
+
+    {% block script %}
+    {% endblock %}
 
     <script>
       const menuBtn = document.querySelector(".menu-icon span");
