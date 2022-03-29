@@ -1,3 +1,181 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} 
 
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
+<link rel="stylesheet" href="static/css/footer.css">
+{% endblock %}
+
+
+{% block content %}
+<br><br>
+<h2>Movies For You </h2>
+<br><br>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="">
+      <div class="contain">
+      <img class="cat" src="static/images/poster.jpeg" alt="Cinque Terre">
+    </div>
+    </a>
+    <div class="desc">
+        <div class="price">
+        <button type="submit" class="btn"><b>Cart</b></button>
+        
+            <h5>Buy: 100</h5>
+            <h5>Rent: 45</h5>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="">
+      <div class="contain">
+      <img class="cat" src="static/images/poster4.jpeg" alt="Forest">
+    </div>
+    </a>
+    <div class="desc">
+        <div class="price">
+        <button type="submit" class="btn"><b>Cart</b></button>
+        
+            <h5>Buy: 100</h5>
+            <h5>Rent: 45</h5>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="">
+      <div class="contain">
+      <img class="cat" src="static/images/poster2.jpeg" alt="Northern Lights">
+    </div>
+    </a>
+    <div class="desc">
+        <div class="price">
+        <button type="submit" class="btn"><b>Cart</b></button>
+        
+            <h5>Buy: 100</h5>
+            <h5>Rent: 45</h5>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="">
+      <div class="contain">
+      <img class="cat" src="static/images/poster3.jpeg" alt="Mountains">
+    </div>
+    </a>
+    <div class="desc">
+        <div class="price">
+        <button type="submit" class="btn"><b>Cart</b></button>
+       
+            <h5>Buy: 100</h5>
+            <h5>Rent: 45</h5>
+        </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="">
+      <div class="contain">
+      <img class="cat" src="static/images/poster3.jpeg" alt="Mountains">
+    </div>
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div>
+
+<div class="responsive">
+    <div class="gallery">
+      <a target="_blank" href="">
+        <div class="contain">
+        <img class="cat" src="static/images/poster2.jpeg" alt="Cinque Terre">
+      </div>
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+  </div>
+
+  <div class="responsive">
+    <div class="gallery">
+      <a target="_blank" href="">
+        <div class="contain">
+        <img class="cat" src="static/images/poster.jpeg">
+      </div>
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+  </div>
+
+  <div class="responsive">
+    <div class="gallery">
+      <a target="_blank" href="">
+        <div class="contain">
+        <img class="cat" src="static/images/poster.jpeg" alt="Cinque Terre">
+      </div>
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+  </div>
+  
+
+<div class="clearfix"></div>
+<br>
+<br>
+<h3>Stay tuned for more cool movies</h3>
+<br>
+<br>
+<div class="footer-dark">
+  <footer>
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-6 col-md-3 item">
+                  <h3>Services</h3>
+                  <ul>
+                      <li><a href="#">Video Buying</a></li>
+                      <li><a href="#">Video Renting</a></li>
+                      <li><a href="#">Video Streaming</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-6 col-md-3 item">
+                  <h3>About</h3>
+                  <ul>
+                      <li><a href="#">Company</a></li>
+                      <li><a href="#">Team</a></li>
+                      <li><a href="#">Careers</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-6 item text">
+                  <h3>MovieHub</h3>
+                  <p>Founded in 2022 by IIT Kharagpur undergraduates, MovieHub aims at providing a platform for movie lovers to buy and rent latest movies for a very affordable price.Video Straming facilities will also be made available in the next release.</p>
+              </div>
+              <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+          </div>
+          <p class="copyright">MovieHub © 2022</p>
+      </div>
+  </footer>
+</div>
+
+
+
+{% endblock %}
+
+{% block script %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
 
