@@ -41,33 +41,12 @@ def delete_note():
 @views.route('/account', methods = ["GET","POST"])    
 def profile():
     if request.method == "POST":
-        name = request.form.get('name')
         email = request.form.get('email')
-        address = request.form.get('address')
-        
-
+        passw = request.form.get('password')
         user = User.query.filter_by(email=current_user.email).first()
+        user.email = email
+        user.password = generate_password_hash(passw)
 
-        if len(name) > 0:
-            user.first_name = name
-            flash('Name successfully changed', category='success')
-
-        elif len(email) > 3:
-            user2 = User.query.filter_by(email=email).first()
-            if user2:
-                flash("Email already taken", category="error")
-            else:
-                user.email = email
-                flash('Email successfully changed', category='success')
-
-        elif len(address) != 0:
-            user.address = address
-            flash('Address Updated', category='success')
-
-        else :
-            flash("Invalid entry, please re-enter",category='error')
-
-        
         db.session.commit()
         return redirect('/account')
 

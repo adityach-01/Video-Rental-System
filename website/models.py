@@ -9,34 +9,10 @@ class Note(db.Model):
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-# class Cerdential(db.Model, UserMixin):
-#     id = db.Column(db.Integer, primary_key=True)
-#     email = db.Column(db.String(150), unique=True)
-#     password = db.Column(db.String(150))
-#     first_name = db.Column(db.String(150))
-#     address = db.Column(db.String(150))
-#     cred = db.Column(db.Integer)
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
-    address = db.Column(db.String(150))
-    cred = db.Column(db.Integer)
-
-class Staff(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(150), unique=True)
-    password = db.Column(db.String(150))
-    first_name = db.Column(db.String(150))
-    address = db.Column(db.String(150))
-    cred = db.Column(db.Integer)
-
-class Manager(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(150), unique=True)
-    password = db.Column(db.String(150))
-    first_name = db.Column(db.String(150))
-    address = db.Column(db.String(150))
-    cred = db.Column(db.Integer)
+    notes = db.relationship('Note')
