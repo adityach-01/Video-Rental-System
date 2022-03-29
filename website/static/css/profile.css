@@ -1,0 +1,36 @@
+body {
+    background-color: rgba(0,0,0,0.9);
+    color: white;
+}
+
+.card{
+    background-color: rgba(0,0,0);
+    color : white;
+    border: none;
+}
+
+.btn{
+    width : 150px;
+    background-color: red;
+    color:white;
+}
+
+.collapsed1{
+    color:white;
+    
+}
+
+.collapsed1:hover{
+    color:orange;
+    text-decoration: none;
+}
+
+.collapsed1:active{
+    color:orange;
+    text-decoration: none;
+}
+
+
+
+
+
