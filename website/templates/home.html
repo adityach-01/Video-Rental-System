@@ -8,132 +8,29 @@
 
 {% block content %}
 <br><br>
-<h2>Movies For You !! </h2>
+<h2>Movies For You </h2>
 <br><br>
 
+{% for movie in movies %}
+
+{% set name = movie.name %}
+{% set id = movie.id %}
+
 <div class="responsive">
+  <a  href="/movie/{{id}}">
   <div class="gallery">
-    <a target="_blank" href="">
       <div class="contain">
-      <img class="cat" src="static/images/poster.jpeg" alt="Cinque Terre">
+      <img class="cat" src="{{movie.url}}" alt="{{name}}">
     </div>
-    </a>
-    <div class="desc">
-      <h6>Name of the movie</h6>
-        <div class="price">
-        <button type="submit" class="btn"><b>Cart</b></button>
-        
-            <h5>Buy: 100</h5>
-            <h5>Rent: 45</h5>
-        </div>
+    <div class="desc" style = "color : white">
+      {{name}}
     </div>
-  </div>
-</div>
-
-
-
-<div class="responsive">
-  <div class="gallery">
-    <a target="_blank" href="">
-      <div class="contain">
-      <img class="cat" src="static/images/poster4.jpeg" alt="Forest">
     </div>
-    </a>
-    <div class="desc">
-        <div class="price">
-        <button type="submit" class="btn"><b>Cart</b></button>
-        
-            <h5>Buy: 100</h5>
-            <h5>Rent: 45</h5>
-        </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="responsive">
-  <div class="gallery">
-    <a target="_blank" href="">
-      <div class="contain">
-      <img class="cat" src="static/images/poster2.jpeg" alt="Northern Lights">
-    </div>
-    </a>
-    <div class="desc">
-        <div class="price">
-        <button type="submit" class="btn"><b>Cart</b></button>
-        
-            <h5>Buy: 100</h5>
-            <h5>Rent: 45</h5>
-        </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="responsive">
-  <div class="gallery">
-    <a target="_blank" href="">
-      <div class="contain">
-      <img class="cat" src="static/images/poster3.jpeg" alt="Mountains">
-    </div>
-    </a>
-    <div class="desc">
-        <div class="price">
-        <button type="submit" class="btn"><b>Cart</b></button>
-       
-            <h5>Buy: 100</h5>
-            <h5>Rent: 45</h5>
-        </div>
-    </div>
-  </div>
-</div>
-<br><br>
-
-<div class="responsive">
-  <div class="gallery">
-    <a target="_blank" href="">
-      <div class="contain">
-      <img class="cat" src="static/images/poster3.jpeg" alt="Mountains">
-    </div>
-    </a>
-    <div class="desc">Add a description of the image here</div>
-  </div>
-</div>
-
-<div class="responsive">
-    <div class="gallery">
-      <a target="_blank" href="">
-        <div class="contain">
-        <img class="cat" src="static/images/poster2.jpeg" alt="Cinque Terre">
-      </div>
-      </a>
-      <div class="desc">Add a description of the image here</div>
-    </div>
+  </a>
   </div>
 
-  <div class="responsive">
-    <div class="gallery">
-      <a target="_blank" href="">
-        <div class="contain">
-        <img class="cat" src="static/images/poster.jpeg">
-      </div>
-      </a>
-      <div class="desc">Add a description of the image here</div>
-    </div>
-  </div>
-
-  <div class="responsive">
-    <div class="gallery">
-      <a target="_blank" href="">
-        <div class="contain">
-        <img class="cat" src="static/images/poster.jpeg" alt="Cinque Terre">
-      </div>
-      </a>
-      <div class="desc">Add a description of the image here</div>
-    </div>
-  </div>
+{% endfor %}
   
-
 <div class="clearfix"></div>
 <br>
 <br>

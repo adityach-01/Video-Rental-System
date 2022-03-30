@@ -12,19 +12,35 @@ views = Blueprint('views', __name__)
 @views.route('/', methods=['GET', 'POST'])
 @login_required
 def home():
-    if request.method == 'POST':
-        note = request.form.get('note')
+    # if request.method == 'POST':
+    #     note = request.form.get('note')
 
-        if len(note) < 1:
-            flash('Note is too short!', category='error')
-        else:
-            new_note = Note(data=note, user_id=current_user.id)
-            db.session.add(new_note)
+    #     if len(note) < 1:
+    #         flash('Note is too short!', category='error')
+    #     else:
+    #         new_note = Note(data=note, user_id=current_user.id)
+    #         db.session.add(new_note)
+    #         db.session.commit()
+    #         flash('Note added!', category='success')
+    movie = Movie.query.all()
+    movie_data = []
+    if len(movie) == 0:
+        with open('./movie.json') as json_file:
+            movie_data = json.load(json_file)
+        for mov in movie_data:
+            movie1 = Movie(name = mov['title'], json_data = mov, url = mov['img_url'], rent_cost = 100,buy_cost = 200)
+            db.session.add(movie1)
             db.session.commit()
-            flash('Note added!', category='success')
-    # movie = Movie.query.all()
+        
+    movie = Movie.query.all()
+    rs = []
+    for ele in movie:
+        if ele.json_data['votes'] > 30000:
+            rs.append(ele)
+        if(len(rs) == 20):
+            break
 
-    return render_template("home.html", user=current_user)
+    return render_template("home.html", user=current_user, movies = rs)
 
 
 @views.route('/delete-note', methods=['POST'])
@@ -101,16 +117,22 @@ def profile_manager():
 def movie():
     return render_template("movie.html")
 
-@views.route('/search', methods = ["POST"])    
+@views.route('/search', methods = ["GET","POST"])    
 def search():
     if request.method == 'POST':
         form = request.form
         search_value = form['searched']
+        print(search_value)
         search = "%{0}%".format(search_value)
         results = Movie.query.filter(Movie.name.like(search)).all()
+
+        while len(results)%4 != 0:
+            results.pop()
         return render_template('search.html', movies=results, query = search_value)
+
     else:
         return redirect('/')
+    
     
 @views.route('/contact', methods = ["GET","POST"])
 def contact():

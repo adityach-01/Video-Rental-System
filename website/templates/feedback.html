@@ -3,27 +3,31 @@
 {% block css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css')}}">
 <link rel="stylesheet" href="static/css/footer.css">
+<link rel="stylesheet" href="static/css/sign_up.css">
 {% endblock %}
 
 {% block content %}
-
+<br>
+<br>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="feedback-form">
                 <h2>Feedback</h2>
+                <br>
                 <form action="/feedback" method="post">
                     <div class="form-group">
-                        <p> Name : {{ user.first_name}} </p>
+                        <h5><p> Name : {{ user.first_name }} </p></h5>
                     </div>
                     <div class="form-group">
-                        <p> Email : {{ user.email}} </p>
+                        <h5><p> Email : {{ user.email}} </p></h5>
                     </div>
+                    <br>
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea class="form-control" id="message" name="message" rows="3"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn"><b>Submit</b></button>
                 </form>
             </div>
         </div>
@@ -69,4 +73,5 @@
 {% block script %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
 {% endblock %}

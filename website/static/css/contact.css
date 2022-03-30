@@ -77,3 +77,6 @@ img.cat {
   display:flex;
   height: 450px;
 }
+.contact_info{
+  text-align: center;
+}

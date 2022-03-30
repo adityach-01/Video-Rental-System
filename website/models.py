@@ -75,6 +75,6 @@ class Movie(db.Model):
     url = db.Column(db.String(200), nullable = False)
     in_data = db.Column(db.Integer)
     json_data = db.Column(db.JSON)
-    poster = db.Column(db.LargeBinary)
+
      
 

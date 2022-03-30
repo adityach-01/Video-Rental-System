@@ -4,6 +4,7 @@
 {% block css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css')}}">
 <link rel="stylesheet" href="static/css/footer.css">
+<link rel="stylesheet" href="static/css/home.css">
 {% endblock %}
 
 {% block content %}
@@ -13,26 +14,26 @@
 <br><br>
 
 {% for movie in movies %}
+
+{% set id = movie.id %}
 <div class="responsive">
+    <a  href="/movie/{{id}}">
     <div class="gallery">
-        <a target="_blank" href="">
-            <div class="contain">
-            <img class="cat" src="static/images/poster.jpeg" alt="Cinque Terre">
-            </div>
-        </a>
-        <div class="desc">
-            <div class="price">
-                <button type="submit" class="btn"><b>Cart</b></button>
-                <h5>Buy: 100</h5>
-                <h5>Rent: 45</h5>
-            </div>
-        </div>
+        <div class="contain">
+        <!-- <img class="cat" src="{{movie.url}}" alt="{{movie.name}}"> -->
+        <img class="cat" src="static/images/{{movie.json_data['id']}}.jpg" alt="{{movie.name}}">
+      </div>
+      <div class="desc" style = "color : white">
+        <h6>{{movie.name}}</h6>
+      </div>
+      </div>
+    </a>
     </div>
-</div>  
 
 {% endfor %}
 
-
+<br>
+<br>
 <br>
 <br>
 <div class="footer-dark">
