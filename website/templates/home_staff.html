@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block title %}Staff Home{% endblock %} 
+
+{% block auth %}
+
+<div class="nav-items">
+    <li><a href="/staff">Home</a></li>
+    <li><a href="/staff/account">Account</a></li>
+    <li><a href="/logout">Logout</a></li>
+</div>
+
+{% endblock %}
+
+{% block content %}
+{{user.first_name, user.cred}}
+{% endblock %}

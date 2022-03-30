@@ -40,13 +40,18 @@
       <div class="logo">
          <img src="/static/images/newlogo.png" class="img-logo">
       </div>
+
+      {% block auth %}
       <div class="nav-items">
          <li><a href="/">Home</a></li>
          <li><a href="/account">Account</a></li>
          <li><a href="/logout">Logout</a></li>
-         <li><a href="#">Contact</a></li>
+         <li><a href="/movie">Contact</a></li>
          <li><a href="#">Feedback</a></li>
       </div>
+      {% endblock %}
+
+      
       <div class="search-icon">
          <span class="fas fa-search"></span>
       </div>

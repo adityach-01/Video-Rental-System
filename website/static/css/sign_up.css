@@ -38,3 +38,17 @@ body {
 .bottom{
     text-align: center;
 }
+
+.btn-secondary{
+    display: block;
+    margin: 0 auto;
+    width : 300px;
+    background-color: white;
+    color:black;
+}
+
+#cred{
+    background-color: white;
+    color:black;
+    border: 5px solid black;
+}

@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}Movie Info{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
+<link rel="stylesheet" href="static/css/footer.css">
+{% endblock%}
+
+{% block content %}
+<div class="responsive1">
+    <div class="gallery">
+      <a target="_blank" href="">
+        <div class="contain">
+        <img class="cat" src="https://images.app.goo.gl/mNAAZEknChaENt7S7" alt="Cinque Terre">
+      </div>
+      </a>
+      <div class="desc1">
+        <h6>Name of the movie</h6>
+          <div class="price">
+          <button type="submit" class="btn"><b>Cart</b></button>
+          
+              <h5>Buy: 100</h5>
+              <h5>Rent: 45</h5>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock%}

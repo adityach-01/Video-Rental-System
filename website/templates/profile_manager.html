@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% block title %}Profile{% endblock %} 
+
+{% block css %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/accordion.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css')}}">
+
+
+{% endblock %}
+
+{% block auth %}
+
+<div class="nav-items">
+    <li><a href="/manager">Home</a></li>
+    <li><a href="/manager/account">Account</a></li>
+    <li><a href="/logout">Logout</a></li>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <br>
+            <h1>Profile</h1>
+            <hr>
+
+            <div class="card">
+                <div class="card-body">
+
+                    <h4>Name :- {{ user.first_name }}</h4>
+                    <hr>
+
+                    {% if user %}
+                    <p><b>Email :- {{user.email}}</b></p>
+
+                        {% if user.cred == 1%}
+                        <p><b>Credential :- Customer</b></p>
+
+                        {% elif user.cred == 2%}
+                        <p><b>Credential :- Staff</b></p>
+
+                        {% else %}
+                        <p><b>Credential :- Manager</b></p>
+                        {% endif %}
+
+                    <p><b>Address :- {{user.address}}</b></p>
+                    {% else %}
+                    <p>User not found</p>
+                    {% endif %}
+
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+{% endblock %}
