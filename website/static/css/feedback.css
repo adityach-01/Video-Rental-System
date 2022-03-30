@@ -1,0 +1,9 @@
+body{
+    background-color: rgba(0,0,0,0.9);
+    color:white;
+}
+
+.container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
