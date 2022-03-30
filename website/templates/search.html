@@ -13,9 +13,14 @@
 <h2>Search results for {{ query }}: </h2>
 <br><br>
 
-{% for movie in movies %}
+{% if movies == 0%}
+<h5>Movie not found</h5>
 
+{% else %}
+
+{% for movie in movies %}
 {% set id = movie.id %}
+
 <div class="responsive">
     <a  href="/movie/{{id}}">
     <div class="gallery">
@@ -29,8 +34,9 @@
       </div>
     </a>
     </div>
-
 {% endfor %}
+{% endif %}
+
 
 <br>
 <br>

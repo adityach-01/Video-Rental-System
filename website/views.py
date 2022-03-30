@@ -12,16 +12,6 @@ views = Blueprint('views', __name__)
 @views.route('/', methods=['GET', 'POST'])
 @login_required
 def home():
-    # if request.method == 'POST':
-    #     note = request.form.get('note')
-
-    #     if len(note) < 1:
-    #         flash('Note is too short!', category='error')
-    #     else:
-    #         new_note = Note(data=note, user_id=current_user.id)
-    #         db.session.add(new_note)
-    #         db.session.commit()
-    #         flash('Note added!', category='success')
     movie = Movie.query.all()
     movie_data = []
     if len(movie) == 0:
@@ -112,11 +102,6 @@ def home_manager():
 def profile_manager():
     return render_template("profile_manager.html", user=current_user)
 
-
-@views.route('/movie')
-def movie():
-    return render_template("movie.html")
-
 @views.route('/search', methods = ["GET","POST"])    
 def search():
     if request.method == 'POST':
@@ -128,6 +113,8 @@ def search():
 
         while len(results)%4 != 0:
             results.pop()
+        if len(results) == 0:
+            results = 0
         return render_template('search.html', movies=results, query = search_value)
 
     else:
@@ -149,3 +136,21 @@ def feedback():
             flash('Thank you for your feedback!', category='success')
         
     return render_template('feedback.html', user = current_user)
+
+# @views.route('/manager', methods = ["GET","POST"])
+# def get_info():
+#     if request.method == "POST":
+#         form = request.form
+#         url = form['api']
+
+@views.route('/movie/<id>', methods = ["GET","POST"])
+def movie(id):
+    movie = Movie.query.get(id)
+    user = User.query.filter_by(email=current_user.email).first()
+
+    # if request.method == 'POST':
+    #     user.movie_cart.append(id)
+    #     db.session.commit()
+
+    return render_template("movie.html", movie=movie)
+

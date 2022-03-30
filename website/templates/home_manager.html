@@ -1,5 +1,19 @@
 {% extends "base.html" %} {% block title %}Manager Home{% endblock %}  
 
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
+<link rel="stylesheet" href="static/css/footer.css">
+
+<style>
+    .btn{
+        display: block;
+        width : 300px;
+        background-color: red;
+        color:white;
+    }
+</style>
+{% endblock %}
+
 {% block auth %}
 
 <div class="nav-items">
@@ -8,4 +22,25 @@
     <li><a href="/logout">Logout</a></li>
 </div>
 
+{% endblock %}
+
+{% block content %}
+<form method = "POST">
+<div class="form-group">
+    <br>
+    <br>
+    <label for="api">
+        <h3>Please enter the imdb url of the movie to be added</h3></label>
+    <br>
+    <input
+      type="api"
+      class="form-control"
+      id="api"
+      name="api"
+      placeholder="Enter the url"
+    />
+    <br>
+    <button type="submit" class="btn"><b>Enter</b></button>
+</div>
+</form>
 {% endblock %}

@@ -77,12 +77,16 @@ def sign_up():
 
         if len(email) < 4:
             flash('Email must be greater than 3 characters.', category='error')
+            return redirect('/sign-up')
         elif len(first_name) < 2:
             flash('First name must be greater than 1 character.', category='error')
+            return redirect('/sign-up')
         elif password1 != password2:
             flash('Passwords don\'t match.', category='error')
+            return redirect('/sign-up')
         elif len(password1) < 5:
             flash('Password must be at least 5 characters.', category='error')
+            return redirect('/sign-up')
         else:
             pass
         
