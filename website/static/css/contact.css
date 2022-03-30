@@ -1,0 +1,79 @@
+body{
+    background-color: rgba(0,0,0,0.9);
+    color:white;
+}
+
+div.gallery {
+    border: 2px solid black;
+  }
+  
+  div.gallery:hover {
+    border: 2px solid white;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 10px;
+    text-align: center;
+    display: flex;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .responsive {
+    margin-top: 30px;
+    padding: 0 6px;
+    float: left;
+    width: 33.32999%;
+  }
+  
+  @media only screen and (max-width: 700px) {
+    .responsive {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .responsive {
+      width: 100%;
+    }
+  }
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .btn{
+    display: block;
+    margin-left: 6px;
+    text-align: center;
+    background-color: red;
+    color:white;
+}
+
+img.cat {
+    float: left;
+    width:  320px;
+    height: 450px;
+    object-fit:cover;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.price{
+    display:flex;
+}
+
+.contain{
+  display:flex;
+  height: 450px;
+}
