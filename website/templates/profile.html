@@ -4,8 +4,8 @@
 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/accordion.css')}}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css')}}">
-
-
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -157,7 +157,118 @@
                   </div>
                 </div>
               </div>
+              </div>
+              
+              <br><br>
+          <h2>Your cart</h2>
+
+          {% if user.movie_cart == [] %}
+          <br>
+          <h5>No movie in the cart</h5>
+          {% endif %}
+
+          {% for movie in user.movie_cart %}
+
+          {% set name = movie.name %}
+          {% set id = movie.id %}
           
+
+          <div class="responsive">
+           
+            <div class="gallery">
+                <div class="contain">
+                <img class="cat" src="{{movie.url}}" alt="{{name}}">
+              </div>
+              <div class="desc" style = "color : white">
+                <h6>{{name}}</h6>
+                <!-- <form method="P">
+                <button type="submit" class="btn" href><h6><b>Remove</b></h6></button>
+              </form> -->
+              <br>
+              <a href="/delete-film/{{id}}">Remove from cart</a>
+              </div>
+              </div>
+        
+            </div>
+
+            {% endfor %}
+            <br>
+            <br>
+
+            <br>
+            <h2>Movies bought by you</h2>
+            {% if user.movie_buy == [] %}
+            <br>
+            <h5>No movie bought till now</h5>
+            {% endif %}
+
+
+            {% for movie in user.movie_buy %}
+
+            {% set name = movie.name %}
+            {% set id = movie.id %}
+      
+            <div class="responsive">
+           
+              <div class="gallery">
+                  <div class="contain">
+                  <img class="cat" src="{{movie.url}}" alt="{{name}}">
+                </div>
+                <div class="desc" style = "color : white">
+                  <h6>{{name}}</h6>
+                  <br>
+                  <h6>Bought on :- </h6>
+                <br>
+                </div>
+                </div>
+          
+              </div>
+  
+              {% endfor %}
+              <br>
+              <br>
+              
+              <form action="/account/purchase/{{user.id}}">
+              <button type="submit" class="btn" style="margin:auto"><b><h5>BUY</b></h5></button>
+              </form>
+                <br>
+                <br>
+              <form action="/account/delete_history/{{user.id}}">
+                <button type="submit" class="btn" style="margin:auto"><b><h5>DELETE HISTORY</b></h5></button>
+                </form>
+
+          <hr>
+          <!-- <div class="footer-dark">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3 item">
+                            <h3>Services</h3>
+                            <ul>
+                                <li><a href="#">Web design</a></li>
+                                <li><a href="#">Development</a></li>
+                                <li><a href="#">Hosting</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-3 item">
+                            <h3>About</h3>
+                            <ul>
+                                <li><a href="#">Company</a></li>
+                                <li><a href="#">Team</a></li>
+                                <li><a href="#">Careers</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 item text">
+                            <h3>Company Name</h3>
+                            <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                        </div>
+                        <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                    </div>
+                    <p class="copyright">Company Name © 2018</p>
+                </div>
+            </footer>
+        </div>
+         -->
 
                
 {% block script %}

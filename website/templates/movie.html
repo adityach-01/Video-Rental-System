@@ -3,7 +3,6 @@
 {% block css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
 <link rel="stylesheet" href="static/css/footer.css">
-<link rel="stylesheet" href="static/css/movie.css">
 {% endblock %}
 
 {% block title %}
@@ -110,6 +109,17 @@
          
      </style>
 
+     <!-- <div class="container">
+        <div  class="imageholder">
+            <div class="text">
+             <div > <img class="cat" id="box1"
+               src="/static/images/imgs/{{id}}.jpg"
+               alt="{{name}}">
+            </div>
+            </div>
+        </div>
+    </div> -->
+
         <div id="main">
                <div class="mainl"></div>
                <div class="mainr">
@@ -120,31 +130,36 @@
                        <!-- <div class="mainrm"><mark>CAST:</mark> Robert Downey Jr. · Chris Evans · Mark Ruffalo · Chris Hemsworth · Scarlett Johansson · Jeremy Renner · Tom Hiddleston · Clark Gregg.</div> -->
                        <div class="mainrd"><mark>PLOT:</mark> {{data['summary']}} </div>
                        <div class="mainrd"><mark>RUNTIME:</mark> {{data['runtime']}}</div>
+                       <div class="mainrd"><mark>RENT PRICE:</mark> {{movie.rent_cost}}</div>
+                       <div class="mainrd"><mark>BUY PRICE:</mark> {{movie.buy_cost}}</div>
                        <p class="genpara"> <mark>GENRE:</mark>
                        {% for gen in data['genres'] %}
                           {{gen}} &emsp14;
                         {% endfor %}
                         </p>
 
-                        
+                        <form method="POST">
+
+                            <div class="form-group">
+                                <div class="dropdown">
+                                  <select name="type" id="cred">
+                                    <option value="Customer"><h5>Buy</h5></option>
+                                    <option value="Staff"><h5>Rent</h5></option>
+                                  </select>
+                                </div>
+                                </div>
+                            
+
                         <div class="mainre">
-                        <button class="button"><b>Add to cart</b></button>
+                        <button type="submit" class="button"><b>Add to cart</b></button>
                         </div>
+                        </form>
                       
                </div>
             
         </div>
 
-    <!-- <div class="container">
-        <div  class="imageholder">
-            <div class="text">
-             <div > <img class="cat" id="box1"
-               src="../static/images/imgs/{{id}}.jpg"
-               alt="{{name}}">
-            </div>
-            </div>
-        </div>
-    </div> -->
+    
     <!-- <img class="cat" src="../static/images/imgs/{{id}}.jpg" alt="{{name}}"> -->
     <br>
 

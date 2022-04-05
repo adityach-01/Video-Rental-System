@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block title %}User Feedback{% endblock %}  
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
+<link rel="stylesheet" href="static/css/footer.css">
+<link rel="stylesheet" href="static/css/user_feedback.css">
+{% endblock %}
+
+{% block auth %}
+
+<div class="nav-items">
+    <li><a href="/manager">Home</a></li>
+    <li><a href="/manager/account">Account</a></li>
+    <li><a href="/user_feedback">Feedback</a></li>
+    <li><a href="/logout">Logout</a></li>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<h2 align="center">Feedbacks</h2>
+<br>
+
+{% if notes == 0 %}
+
+<h6>No feedback to display</h6>
+
+{% else %}
+<ul class="list-group list-group-flush" id="notes">
+
+
+  {% for note in notes %}
+  <li class="list-group-item">
+    <h5>{{ note.data }}</h5>
+    <form method="POST">
+    <a href="/delete-note/{{note.id}}">
+    <button type="button" class="close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </a>
+</form>
+
+  </li>
+
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

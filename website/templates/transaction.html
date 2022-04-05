@@ -1,0 +1,65 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} 
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
+<link rel="stylesheet" href="static/css/footer.css">
+<style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid black;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: rgba(0,0,0,0.6);}
+    #customers tr:nth-child(odd){background-color: rgba(0,0,0,0.6);}
+    
+    #customers tr:hover {background-color: black;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: red;
+      color: black;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<br><br>
+<h2>Your order</h2>
+<br><br>
+
+<table id="customers">
+    <tr>
+      <th><h5>Movie Name</h5></th>
+      <th><h5>Price</h5></th>
+      <th><h5>Rating</h5></th>
+    </tr>
+
+{% for movie in buy_list %}
+<tr>
+    <td><h6>{{movie.name}}</h6></td>
+    <td><h6>{{movie.buy_cost}}</h6></td>
+    <td><h6>{{movie.json_data['rating']}}</h6></td>
+</tr>
+{% endfor %}
+</table>
+<br>
+<h3>Your total payable price is {{price}}.</h3>
+<br>
+<h3><center>Thank you for trusting us !!</center></h3>
+
+<br>
+<form action="/">
+    <button type="submit" class="btn" style="margin:auto"><h6><b>Home</b></h6></button>
+</form>
+
+
+{% endblock %}

@@ -61,7 +61,7 @@ class Manager(db.Model, UserMixin):
     address = db.Column(db.String(150))
     cred = db.Column(db.Integer)
 
-class Movie(db.Model):
+class Movie(db.Model, UserMixin):
     id =  db.Column(db.Integer, primary_key=True)
     imdb_id = db.Column(db.String(150))
     rating = db.Column(db.Float)
