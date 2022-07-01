@@ -30,6 +30,18 @@ body {
     text-decoration: none;
 }
 
+div.cont{
+    width:100%;
+    display: inline-block;
+}
+
+div.wow {
+    /* position:relative; */
+    width:100%;
+    display:inline-block;
+}
+
+
 
 
 

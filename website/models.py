@@ -76,5 +76,7 @@ class Movie(db.Model, UserMixin):
     in_data = db.Column(db.Integer)
     json_data = db.Column(db.JSON)
 
+
+
      
 

@@ -160,6 +160,8 @@
               </div>
               
               <br><br>
+
+        <div class="cont">
           <h2>Your cart</h2>
 
           {% if user.movie_cart == [] %}
@@ -172,7 +174,6 @@
           {% set name = movie.name %}
           {% set id = movie.id %}
           
-
           <div class="responsive">
            
             <div class="gallery">
@@ -180,21 +181,25 @@
                 <img class="cat" src="{{movie.url}}" alt="{{name}}">
               </div>
               <div class="desc" style = "color : white">
+                <div class="wow">
                 <h6>{{name}}</h6>
-                <!-- <form method="P">
-                <button type="submit" class="btn" href><h6><b>Remove</b></h6></button>
-              </form> -->
-              <br>
-              <a href="/delete-film/{{id}}">Remove from cart</a>
+              </div>
+              <div class="wow">
+              <a href="/delete-film/{{id}}"><h6>Remove from cart</h6></a>
+            </div>
               </div>
               </div>
         
             </div>
 
             {% endfor %}
+
+        </div>
+
             <br>
             <br>
 
+          <div class="cont">
             <br>
             <h2>Movies bought by you</h2>
             {% if user.movie_buy == [] %}
@@ -202,7 +207,7 @@
             <h5>No movie bought till now</h5>
             {% endif %}
 
-
+            
             {% for movie in user.movie_buy %}
 
             {% set name = movie.name %}
@@ -215,9 +220,8 @@
                   <img class="cat" src="{{movie.url}}" alt="{{name}}">
                 </div>
                 <div class="desc" style = "color : white">
-                  <h6>{{name}}</h6>
-                  <br>
-                  <h6>Bought on :- </h6>
+                  <h6 style="display:block;">{{name}}</h6>
+                  <h6 style="display:block;">Bought on :</h6>
                 <br>
                 </div>
                 </div>
@@ -225,6 +229,7 @@
               </div>
   
               {% endfor %}
+          </div>
               <br>
               <br>
               

@@ -26,13 +26,14 @@
 {% endblock %}
 
 {% block content %}
-<form method = "POST">
+
 <div class="form-group">
     <br>
     <br>
     <label for="api">
         <h3>Please enter the imdb url of the movie to be added</h3></label>
     <br>
+    <form method = "POST">
     <input
       type="api"
       class="form-control"
@@ -42,6 +43,7 @@
     />
     <br>
     <button type="submit" class="btn"><b>Enter</b></button>
-</div>
 </form>
+</div>
+
 {% endblock %}
